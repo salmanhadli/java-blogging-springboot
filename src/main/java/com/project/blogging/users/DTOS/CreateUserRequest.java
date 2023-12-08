@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.NonNull;
 
 @Data
-// @Setter(AccessLevel.NONE)
+@Setter(AccessLevel.NONE)
 public class CreateUserRequest {
 
   @NonNull
