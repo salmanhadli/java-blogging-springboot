@@ -8,18 +8,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-  private final UserRepository userRepository;
+  @Autowired
+  public UserRepository userRepository;
 
-  public UserService(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
+  // public UserService(UserRepository userRepository) {
+  //   this.userRepository = userRepository;
+  // }
 
   public UserEntity createUser(CreateUserRequest body) {
     // TODO: encrypt the password and save it
     var newUser = UserEntity
       .builder()
       .username(body.getUsername())
-      // .password(body.getPassword)
+      // .password(body.getPassword())
       .email(body.getEmail())
       .build();
 

@@ -1,47 +1,41 @@
 package com.project.blogging.users;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import jakarta.persistence.Id;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-@Entity(name = "users")
-@Getter
-@Setter
+@Entity
+// @Getter
+// @Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+// @ToString
+// @RequiredArgsConstructor
+// @AllArgsConstructor
+// @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "users")
+@Data
 public class UserEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
-  @Column(nullable = false)
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  // @Column(nullable = false)
   private Long id;
 
-  @Column(nullable = false)
-  @NonNull
+  // @Column(nullable = false)
+  // @NonNull
   private String username;
 
-  @Column(nullable = false)
-  @NonNull
+  // @Column(nullable = false)
+  // @NonNull
   private String email;
 
-  @Column(nullable = true)
-  @Nullable
+  // @Column(nullable = true)
+  // @Nullable
   private String bio;
 
-  @Column(nullable = true)
-  @Nullable
+  // @Column(nullable = true)
+  // @Nullable
   private String image;
 }

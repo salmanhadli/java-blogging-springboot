@@ -1,6 +1,6 @@
 package com.project.blogging.articles.DTOS;
 
-import io.micrometer.common.lang.NonNull;
+import lombok.NonNull;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

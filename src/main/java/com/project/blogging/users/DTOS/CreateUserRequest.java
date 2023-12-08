@@ -3,10 +3,10 @@ package com.project.blogging.users.DTOS;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
+import lombok.NonNull;
 
 @Data
-@Setter(AccessLevel.NONE)
+// @Setter(AccessLevel.NONE)
 public class CreateUserRequest {
 
   @NonNull

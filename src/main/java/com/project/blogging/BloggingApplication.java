@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 public class BloggingApplication {
 
   @Bean
-  public ModelMapper modelMapper() {
+  ModelMapper modelMapper() {
     return new ModelMapper();
   }
 
