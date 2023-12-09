@@ -2,28 +2,26 @@ package com.project.blogging.users;
 
 import com.project.blogging.users.DTOS.CreateUserRequest;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-  @Autowired
-  public UserRepository userRepository;
+  // @Autowired
+  private final UserRepository userRepository;
+  private final ModelMapper modelMapper;
 
-  // public UserService(UserRepository userRepository) {
-  //   this.userRepository = userRepository;
-  // }
+  public UserService(UserRepository userRepository, ModelMapper modelMapper) {
+    this.userRepository = userRepository;
+    this.modelMapper = modelMapper;
+  }
 
   public UserEntity createUser(CreateUserRequest body) {
+    UserEntity newUser = modelMapper.map(body, UserEntity.class);
     // TODO: encrypt the password and save it
-    var newUser = UserEntity
-      .builder()
-      .username(body.getUsername())
-      // .password(body.getPassword())
-      .email(body.getEmail())
-      .build();
-
+    // newUser.setPassword();
     return this.userRepository.save(newUser);
   }
 
@@ -42,7 +40,7 @@ public class UserService {
     if (user == null) {
       throw new UserNotFoundException(username);
     }
-    // TODO: match password
+    // TODO: check and match password
     return user;
   }
 

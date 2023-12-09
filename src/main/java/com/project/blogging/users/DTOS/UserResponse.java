@@ -3,7 +3,7 @@ package com.project.blogging.users.DTOS;
 import lombok.Data;
 
 @Data
-public class CreateUserResponse {
+public class UserResponse {
 
   private Long id;
   private String username;
